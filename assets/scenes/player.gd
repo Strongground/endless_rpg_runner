@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var root = get_tree().get_current_scene()
 onready var camera = root.find_node("camera")
 onready var monsterManager = root.find_node("monsterManager")
-onready var health_value = get_node('health_value')
+onready var health_value = camera.get_node('health_value')
 onready var attack_cooldown = get_node('attack_cooldown')
 onready var animation_player = get_node('AnimationPlayer')
 export(int) var speed = 200

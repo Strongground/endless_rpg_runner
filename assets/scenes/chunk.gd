@@ -4,32 +4,43 @@ onready var root = get_tree().get_current_scene()
 onready var player = root.find_node('player')
 onready var monsterManager = root.find_node('monsterManager')
 onready var chunkManager = root.find_node('chunkManager')
-# onready var chunk_pos_output = root.find_node('chunk_pos_value')
-# onready var player_pos_output = root.find_node('player_pos_value')
-var isVisible = false
-var isActive = false
+var is_visible = false
+var is_active = false
+var neighbours = {
+	'N': null,
+	'NE': null,
+	'E': null,
+	'SE': null,
+	'S': null,
+	'SW': null,
+	'W': null,
+	'NW': null
+}
 
 func _ready():
 	pass
 
 func _process(delta):
-	# player_pos_output.set_text(str(player.get_global_transform().get_origin()))
-	# chunk_pos_output.set_text(str(self.get_global_transform()))
 	pass
 
 func _on_chunk_body_shape_entered(body_id, body, body_shape, local_shape):
-	if not self.isActive:
+	if not self.is_active:
 		var entered_body_name = instance_from_id(body_id).name
 		if entered_body_name == 'player':
-			self.isActive = true
+			self.is_active = true
 			print('Hi! '+self.name+' is now active!')
-			chunkManager.setActive(true, self)
-			monsterManager.spawn_monsters(5)
+			chunkManager.set_active(self)
+			monsterManager.spawn_monsters(0)
 	
 func _on_chunk_body_shape_exited(body_id, body, body_shape, area_shape):
-	if self.isActive:
+	if self.is_active:
 		var entered_body_name = instance_from_id(body_id).name
 		if entered_body_name == 'player':
-			self.isActive = false
+			self.is_active = false
 			print('Hi! '+self.name+' is no longer active. :(')
-			chunkManager.setActive(false, self)
+
+func set_neighbour(direction, instance):
+	if neighbours.has(direction):
+		self.neighbours[direction] = instance
+	else:
+		print('Error: Direction '+str(direction)+' is invalid.')

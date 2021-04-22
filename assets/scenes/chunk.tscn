@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scenes/chunk.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/terrain/grass_mix_ylw_d.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/textures/terrain/jungle_mntn_h.jpg" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1258.02, 1266.11 )
+extents = Vector2( 122.994, 124.925 )
 
 [node name="chunk" type="Area2D"]
 modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
@@ -15,10 +16,70 @@ script = ExtResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 5120, 5120 )
+region_rect = Rect2( 0, 0, 512, 512 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 0.197083, 0.327393 )
 shape = SubResource( 1 )
+
+[node name="jungle_mntn_h" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1253.02, -1182.55 )
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( 20.0508, -5.7876 )
+
+[node name="jungle_mntn_h2" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1232.56, -1270.75 )
+rotation = -1.57406
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( -507.594, 505.04 )
+
+[node name="jungle_mntn_h3" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1249.49, 1182.05 )
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( 20.0508, -5.7876 )
+
+[node name="jungle_mntn_h4" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1227.51, 1230.22 )
+rotation = -1.57406
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( -507.594, 505.04 )
+
+[node name="jungle_mntn_h5" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1247.74, -1178 )
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( 20.0508, -5.7876 )
+
+[node name="jungle_mntn_h6" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1052.96, -1266.2 )
+rotation = -1.57406
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( -507.594, 505.04 )
+
+[node name="jungle_mntn_h7" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1247.24, 1184.58 )
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( 20.0508, -5.7876 )
+
+[node name="jungle_mntn_h8" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1058.01, 1234.76 )
+rotation = -1.57406
+scale = Vector2( 0.038779, 0.172672 )
+texture = ExtResource( 3 )
+offset = Vector2( -507.594, 505.04 )
 [connection signal="body_shape_entered" from="." to="." method="_on_chunk_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_chunk_body_shape_exited"]
