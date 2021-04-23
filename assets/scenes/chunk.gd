@@ -40,7 +40,22 @@ func _on_chunk_body_shape_exited(body_id, body, body_shape, area_shape):
 			print('Hi! '+self.name+' is no longer active. :(')
 
 func set_neighbour(direction, instance):
-	if neighbours.has(direction):
-		self.neighbours[direction] = instance
+	if self.neighbours.has(direction):
+		if self.neighbours.get(direction) == null:
+			self.neighbours[direction] = instance
+		else:
+			if self.neighbours.get(direction) != instance:
+				print("Warning: Trying to overwrite existing direction with a different one. This shouldn't be possible.")
+			print('Warning: Direction already set, skipping.')
 	else:
 		print('Error: Direction '+str(direction)+' is invalid.')
+
+# Public method to check either if at least one neighbour exists
+# or if at least one neighbour doesn't exist.
+# @input (Boolean) invert: 'true' if should check if at least one neighbour doesn't exist.
+# @return (Boolean)
+func check_neighbours(invert):
+	for neighbour in neighbours.values():
+		if !invert && neighbour != null || invert && neighbour == null:
+			return true
+	return false
