@@ -1,19 +1,61 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/scenes/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/terrain/adesert_cracks_d.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/scenes/chunk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/monsterManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/chunkManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/camera.gd" type="Script" id=5]
 
-[node name="root" type="Node2D"]
+[node name="world" type="Node2D"]
 
-[node name="adesert_cracks_d" type="Sprite" parent="."]
-position = Vector2( 505.9, 452.75 )
-scale = Vector2( 0.780273, 0.780273 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 3367.39, 1622.64 )
+[node name="chunk" parent="." instance=ExtResource( 2 )]
+position = Vector2( -32, -32 )
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 92.3837, 1.3132 )
+current = true
+process_mode = 0
+smoothing_enabled = true
+smoothing_speed = 10.0
+editor_draw_limits = true
+script = ExtResource( 5 )
+
+[node name="print_vis-rect_button" type="Button" parent="camera"]
+margin_left = -115.773
+margin_top = 250.303
+margin_right = 93.2269
+margin_bottom = 270.303
+text = "DEBUG: Print Visible Rectangle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_label" type="RichTextLabel" parent="camera"]
+margin_left = -452.656
+margin_top = -254.422
+margin_right = -376.656
+margin_bottom = -237.422
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "Health:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health_value" type="RichTextLabel" parent="camera"]
+margin_left = -397.033
+margin_top = -255.138
+margin_right = -321.033
+margin_bottom = -238.138
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "Player Pos:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500.5, 315 )
+position = Vector2( -53.141, 11.0148 )
 
-[node name="camera" type="Camera2D" parent="player"]
-current = true
+[node name="monsterManager" parent="." instance=ExtResource( 3 )]
+
+[node name="chunkManager" parent="." instance=ExtResource( 4 )]
+[connection signal="pressed" from="camera/print_vis-rect_button" to="camera" method="_on_print_visrect_button_pressed"]
