@@ -13,6 +13,7 @@ position = Vector2( -32, -32 )
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2( 92.3837, 1.3132 )
+z_index = 99
 current = true
 process_mode = 0
 smoothing_enabled = true
@@ -30,11 +31,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="gold_label" type="RichTextLabel" parent="camera"]
+margin_left = -453.0
+margin_top = -239.0
+margin_right = -402.0
+margin_bottom = -222.0
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "Gold:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gold_value" type="RichTextLabel" parent="camera"]
+margin_left = -397.033
+margin_top = -239.138
+margin_right = -321.033
+margin_bottom = -222.138
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "GoldValue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="health_label" type="RichTextLabel" parent="camera"]
-margin_left = -452.656
-margin_top = -254.422
-margin_right = -376.656
-margin_bottom = -237.422
+margin_left = -453.0
+margin_top = -255.0
+margin_right = -402.0
+margin_bottom = -238.0
 rect_pivot_offset = Vector2( 136.404, 51.5022 )
 text = "Health:"
 __meta__ = {
@@ -42,12 +65,34 @@ __meta__ = {
 }
 
 [node name="health_value" type="RichTextLabel" parent="camera"]
-margin_left = -397.033
-margin_top = -255.138
-margin_right = -321.033
-margin_bottom = -238.138
+margin_left = -397.397
+margin_top = -255.259
+margin_right = -321.397
+margin_bottom = -238.259
 rect_pivot_offset = Vector2( 136.404, 51.5022 )
-text = "Player Pos:"
+text = "HealthValue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exp_label" type="RichTextLabel" parent="camera"]
+margin_left = -453.0
+margin_top = -223.0
+margin_right = -402.0
+margin_bottom = -206.0
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "EXP:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exp_value" type="RichTextLabel" parent="camera"]
+margin_left = -397.154
+margin_top = -223.259
+margin_right = -321.154
+margin_bottom = -206.259
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "ExperienceValue"
 __meta__ = {
 "_edit_use_anchors_": false
 }

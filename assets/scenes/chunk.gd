@@ -30,7 +30,7 @@ func _on_chunk_body_shape_entered(body_id, body, body_shape, local_shape):
 			self.is_active = true
 			print('Hi! '+self.name+' is now active!')
 			chunkManager.set_active(self)
-			monsterManager.spawn_monsters(0)
+			monsterManager.spawn_monsters(1)
 	
 func _on_chunk_body_shape_exited(body_id, body, body_shape, area_shape):
 	if self.is_active:
