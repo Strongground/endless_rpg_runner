@@ -97,6 +97,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="level_label" type="RichTextLabel" parent="camera"]
+margin_left = -453.0
+margin_top = -207.0
+margin_right = -402.0
+margin_bottom = -190.0
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "Level:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level_value" type="RichTextLabel" parent="camera"]
+margin_left = -397.154
+margin_top = -207.259
+margin_right = -321.154
+margin_bottom = -190.259
+rect_pivot_offset = Vector2( 136.404, 51.5022 )
+text = "LevelValue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -53.141, 11.0148 )
 
